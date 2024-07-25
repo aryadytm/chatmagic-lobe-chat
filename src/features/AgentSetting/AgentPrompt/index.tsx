@@ -39,7 +39,7 @@ export const useStyles = createStyles(({ css, token, responsive }) => ({
 const AgentPrompt = memo<{ modal?: boolean }>(({ modal }) => {
   const { t } = useTranslation('setting');
   const { styles } = useStyles();
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(true);
   const [systemRole, updateConfig] = useStore((s) => [s.config.systemRole, s.setAgentConfig]);
 
   const content = (

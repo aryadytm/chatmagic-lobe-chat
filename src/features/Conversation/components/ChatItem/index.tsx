@@ -146,7 +146,7 @@ const Item = memo<ChatListItemProps>(({ index, id }) => {
             edit: t('edit'),
           }}
           time={item.updatedAt || item.createdAt}
-          type={type === 'chat' ? 'block' : 'pure'}
+          type={'block'}
         />
       </>
     )

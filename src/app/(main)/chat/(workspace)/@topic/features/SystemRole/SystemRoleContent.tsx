@@ -22,7 +22,7 @@ import { sessionMetaSelectors, sessionSelectors } from '@/store/session/selector
 import { useStyles } from './style';
 
 const SystemRole = memo(() => {
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(true);
   const { styles } = useStyles();
   const openChatSettings = useOpenChatSettings(ChatSettingsTabs.Prompt);
   const [init, meta] = useSessionStore((s) => [
