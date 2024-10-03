@@ -72,7 +72,7 @@ const createSmoothMessage = (params: {
 
   // define startAnimation function to display the text in buffer smooth
   // when you need to start the animation, call this function
-  const startAnimation = (speed = startSpeed) =>
+  const startAnimation = (speed = 999) =>
     new Promise<void>((resolve) => {
       if (isAnimationActive) {
         resolve();
@@ -147,7 +147,7 @@ const createSmoothToolCalls = (params: {
     }
   };
 
-  const startAnimation = (index: number, speed = startSpeed) =>
+  const startAnimation = (index: number, speed = 999) =>
     new Promise<void>((resolve) => {
       if (isAnimationActives[index]) {
         resolve();
@@ -202,7 +202,7 @@ const createSmoothToolCalls = (params: {
     });
   };
 
-  const startAnimations = async (speed = startSpeed) => {
+  const startAnimations = async (speed = 999) => {
     const pools = toolCallsBuffer.map(async (_, index) => {
       if (outputQueues[index].length > 0 && !isAnimationActives[index]) {
         await startAnimation(index, speed);
@@ -380,11 +380,11 @@ export const fetchSSE = async (url: string, options: RequestInit & FetchSSEOptio
       const observationId = response.headers.get(LOBE_CHAT_OBSERVATION_ID);
 
       if (textController.isTokenRemain()) {
-        await textController.startAnimation(END_ANIMATION_SPEED);
+        await textController.startAnimation(999);
       }
 
       if (toolCallsController.isTokenRemain()) {
-        await toolCallsController.startAnimations(END_ANIMATION_SPEED);
+        await toolCallsController.startAnimations(999);
       }
 
       await options?.onFinish?.(output, { observationId, toolCalls, traceId, type: finishedType });
