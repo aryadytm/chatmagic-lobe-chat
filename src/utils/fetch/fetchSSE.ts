@@ -1,3 +1,5 @@
+/* eslint-disable unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars */
+
 import { MESSAGE_CANCEL_FLAT } from '@/const/message';
 import { LOBE_CHAT_OBSERVATION_ID, LOBE_CHAT_TRACE_ID } from '@/const/trace';
 import { ChatErrorType } from '@/types/fetch';
